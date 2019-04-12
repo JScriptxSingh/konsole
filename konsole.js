@@ -80,7 +80,7 @@ function error(msg = false) {
     }
 
     justExited = false;
-    cLog(chalk`{gray ${getTabSpace()}} {cyan ERROR:} {red ${mtext}}`);
+    cLog(chalk`{gray ${getTabSpace()}} {cyan ${((_label) ? 'ERROR:' : '' )}} {red ${mtext}}`);
 }
 
 // Success
@@ -92,7 +92,7 @@ function success(msg = false) {
     }
 
     justExited = false;
-    cLog(chalk`{gray ${getTabSpace()}} {cyan Success:} {green ${mtext}}`);
+    cLog(chalk`{gray ${getTabSpace()}} {cyan ${((_label) ? 'SUCCESS:' : '')}} {green ${mtext}}`);
 }
 
 // Info
@@ -104,7 +104,7 @@ function info(msg = false) {
     }
 
     justExited = false;
-    cLog(chalk`{gray ${getTabSpace()}} {cyan INFO:} {blueBright ${mtext}}`);
+    cLog(chalk`{gray ${getTabSpace()}} {cyan ${((_label) ? 'INFO:' : '')}} {blueBright ${mtext}}`);
 }
 
 // Native log pass through`
