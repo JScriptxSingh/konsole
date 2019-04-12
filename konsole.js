@@ -8,7 +8,7 @@
 const chalk = require('chalk');
 const cLog = console.log;
 let tab = 0;
-var justExited = false, _fxLabel = true, _fxTree = true, _fxNums = true;;
+var justExited = false, _fxLabel = true, _fxTree = true, _fxNums = true, _label = true;
 
 // Enter Function
 function enFx(msg = false) {
@@ -22,7 +22,7 @@ function enFx(msg = false) {
         space();
         justExited = false;
     }
-    cLog(chalk`{gray ${getTabSpace()}} {cyan ${((_fxLabel) ? 'Fx' : '')}}{yellow ${((_fxNums) ? tab : '')}}{cyan ${((_fxLabel) ? ':Enter' : '' )}} {yellow.bold ${mtext}}`);
+    cLog(chalk`{gray ${getTabSpace()}} {cyan ${((_fxLabel) ? 'Fx' : '')}}{yellow ${((_fxNums) ? tab : '')}}{cyan ${((_fxLabel) ? ':Enter' : '')}} {yellow.bold ${mtext}}`);
 }
 
 // Exit Function
@@ -30,7 +30,7 @@ function exFx(msg = false) {
     if (!(mtext = msg)) {
         mtext = "";
     }
-    cLog(chalk`{gray ${getTabSpace()}} {cyan ${((_fxLabel) ? 'Fx' : '')}}{yellow ${((_fxNums) ? tab : '')}}{cyan ${((_fxLabel) ? ':Exit' : '' )}} {yellow.bold ${mtext}}`);
+    cLog(chalk`{gray ${getTabSpace()}} {cyan ${((_fxLabel) ? 'Fx' : '')}}{yellow ${((_fxNums) ? tab : '')}}{cyan ${((_fxLabel) ? ':Exit' : '')}} {yellow.bold ${mtext}}`);
     justExited = true;
 
     tab--;
@@ -85,7 +85,14 @@ function error(msg = false) {
 
 // Success
 function success(msg = false) {
+    let mtext;
 
+    if (!(mtext = msg)) {
+        mtext = "Info has been called without message.";
+    }
+
+    justExited = false;
+    cLog(chalk`{gray ${getTabSpace()}} {cyan Success:} {green ${mtext}}`);
 }
 
 // Info
@@ -132,6 +139,11 @@ function fxTree(setting) {
 // Toggle display function labels
 function fxLabel(setting) {
     _fxLabel = setting;
+}
+
+// Toggle all other labels
+function label(setting) {
+    _label = setting;
 }
 
 // Toggle display function num
