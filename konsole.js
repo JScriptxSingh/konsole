@@ -1,6 +1,6 @@
 
 // konsole v1.0 - Fri April 12, 2019 01:42 AM
-// copyright 2019 Jass Bhamra
+// copyright (c) 2019 Jass Bhamra
 // jassbhamra@outlook.com
 // jassbhamra.com
 // https://github.com/jassbhamra/konsole.git
